@@ -1,3 +1,4 @@
+// import React, { Component } from 'react';
 import s from './Container.module.css';
 
 const Container = ({ children }) => {
