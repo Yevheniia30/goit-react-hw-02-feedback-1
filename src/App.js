@@ -81,7 +81,7 @@ class App extends Component {
             <p className={s.feedbackQuantity}>Bad: {bad}</p>
             <p className={s.feedbackQuantity}>Total: {allFeedbacks}</p>
             <p className={s.feedbackQuantity}>
-              Positive feedback: {persentage}%
+              Positive feedback: {isNaN(persentage) ? 0 : persentage} %
             </p>
           </div>
           {/* <FeedbackOptions
