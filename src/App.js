@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-// import s from './App.module.css';
+import s from './App.module.css';
 import Statistics from './components/Statistics';
 import FeedbackOptions from './components/FeedbackOptions';
 import Section from './components/Section';
-import Container from './components/Container';
+import Notification from './components/Notification';
 
 class App extends Component {
   state = {
@@ -39,6 +39,9 @@ class App extends Component {
     });
   };
 
+  // ф-ция показа статистики только при первом нажатии кнопки
+  onLeaveFeedback = () => {};
+
   render() {
     const values = Object.values(this.state);
     const goodFeedbacks = values[0];
@@ -47,26 +50,26 @@ class App extends Component {
 
     const { good, neutral, bad } = this.state;
     return (
-      <div className="App-main">
-        <Container>
-          <Section title="Please leave feedback">
-            <FeedbackOptions
-              handleGood={this.handleGood}
-              handleBad={this.handleBad}
-              handleNeutral={this.handleNeutral}
-            />
-          </Section>
+      <div className={s.App}>
+        <Section title="Please leave feedback">
+          <FeedbackOptions
+            handleGood={this.handleGood}
+            handleBad={this.handleBad}
+            handleNeutral={this.handleNeutral}
+            onLeaveFeedback={this.onLeaveFeedback}
+          />
+        </Section>
 
-          <Section title="Statistics">
-            <Statistics
-              good={good}
-              neutral={neutral}
-              bad={bad}
-              total={total}
-              positivePercentage={positivePercentage}
-            ></Statistics>
-          </Section>
-        </Container>
+        <Section title="Statistics">
+          <Notification message="No feedback given" />
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={total}
+            positivePercentage={positivePercentage}
+          ></Statistics>
+        </Section>
       </div>
     );
   }

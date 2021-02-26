@@ -1,0 +1,23 @@
+.goodBtn {
+  background-color: #2e8a37;
+}
+.neutralBtn {
+  background-color: #f5c527;
+}
+.badBtn {
+  background-color: #f0261f;
+}
+.btn {
+  padding: 10px;
+  width: 100px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    0px 1px 1px rgba(0, 0, 0, 0.12);
+}
+.btn:hover {
+  transform: scale(1.1);
+}
+.btn:not(:last-child) {
+  margin-right: 10px;
+}
