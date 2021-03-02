@@ -45,7 +45,7 @@ class App extends Component {
   render() {
     const values = Object.values(this.state);
     const goodFeedbacks = values[0];
-    const total = values[0] + values[1] + values[2];
+    const total = values.reduce((acc, value) => acc + value);
     const positivePercentage = Math.round((goodFeedbacks / total) * 100);
 
     const { good, neutral, bad } = this.state;
