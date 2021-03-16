@@ -11,7 +11,8 @@ const Section = ({ title = 'Feedbacks widget', children }) => {
 };
 
 Section.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  children: PropTypes.node.isRequired,
 };
 
 export default Section;

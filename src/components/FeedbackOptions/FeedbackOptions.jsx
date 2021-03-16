@@ -1,20 +1,32 @@
 import PropTypes from 'prop-types';
 import s from './FeedbackOptions.module.css';
-// когда передаем пропы функций, негласный стандарт называть их On...
-const FeedbackOptions = ({ options, onleaveFeedback }) => {
+
+const FeedbackBtn = ({ feedback, onLeaveFeedback }) => {
   return (
-    <div>
-      {options.map(option => (
-        <button key={option} className={s.btn} onClick={onleaveFeedback}>
-          {option}
-        </button>
-      ))}
-    </div>
+    <button
+      className={s.btn}
+      type="button"
+      data-feedback={feedback}
+      onClick={onLeaveFeedback}
+    >
+      {feedback}
+    </button>
   );
 };
 
+const FeedbackOptions = ({ options, onLeaveFeedback }) => {
+  return options.map(option => (
+    <FeedbackBtn
+      key={option}
+      feedback={option}
+      onLeaveFeedback={onLeaveFeedback}
+    />
+  ));
+};
+
 FeedbackOptions.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.string.isRequired),
+  options: PropTypes.arrayOf(PropTypes.string),
+  onLeaveFeedback: PropTypes.func.isRequired,
 };
 
 export default FeedbackOptions;
